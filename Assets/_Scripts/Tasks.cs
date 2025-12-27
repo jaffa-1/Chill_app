@@ -10,10 +10,11 @@ public class Tasks : MonoBehaviour
     [SerializeField] Transform taskContainer;
     [SerializeField] Transform taskTemplate;
 
-    
+    List<TaskTemplate> taskList;
     string taskString;
     private void Awake()
     {
+        taskList = new List<TaskTemplate>();
         TaskInput.onValueChanged.AddListener((string text) =>
         {
             taskString = text;
@@ -25,6 +26,7 @@ public class Tasks : MonoBehaviour
             if (taskTransform.TryGetComponent(out TaskTemplate TaskTemplate))
             {
                 TaskTemplate.setText(taskString);
+                taskList.Add(TaskTemplate);
             }
             taskTransform.gameObject.SetActive(true);
             TaskInput.text = "";
