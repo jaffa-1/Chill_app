@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class StatsUI : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI exp;
+    [SerializeField] TextMeshProUGUI expText;
     [SerializeField] Image expProgressImage;
+    [SerializeField] TextMeshProUGUI levelText;
 
-    public void updateExpUI(int currentValue,int maxValue)
+    public void updateExpUI(int currentValue,int maxValue,int level)
     {
         expProgressImage.fillAmount = (float)currentValue / maxValue;
-        exp.text = String.Concat(currentValue.ToString(),"/",maxValue.ToString());
+        expText.text = String.Concat(currentValue.ToString(),"/",maxValue.ToString());
+        levelText.text = level.ToString();
     }
 }

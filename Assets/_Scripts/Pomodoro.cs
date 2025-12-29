@@ -37,6 +37,7 @@ public class Pomodoro : MonoBehaviour
         });
         DecreaseButton.onClick.AddListener(() =>
         {
+            if(minutes>5)
             minutes -= 5;
             UpdateCountDownUI();
         });
