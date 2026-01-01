@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd7357716e6d204f96ad89c746828f6, type: 3}
   m_Name: lost_in_dreams
   m_EditorClassIdentifier: Assembly-CSharp::MusicSO
-  audioClip: {fileID: 0}
-  songName: 
-  songMaker: 
+  audioClip: {fileID: 8300000, guid: f43c3fd4486b07843a7d1a599c86915c, type: 3}
+  songName: Lost in Dreams
+  songMaker: Kulakovka

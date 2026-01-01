@@ -13,16 +13,11 @@ public class ButtonScript : MonoBehaviour
        
     public event EventHandler OnTabClosed;
     public event EventHandler OnTabToggled;
-
-    Animator animator;
-
     protected virtual void Awake()
     {
-        animator = GetComponent<Animator>();
         toggleButton.onClick.AddListener(() =>
         {
             TemplateState = !TemplateState;
-            animator.SetBool(IS_OPEN, TemplateState);
             foreach (GameObject GO in Template)
             {
                 GO.SetActive(TemplateState);
@@ -32,7 +27,6 @@ public class ButtonScript : MonoBehaviour
         closeButton.onClick.AddListener(() =>
         {
             TemplateState = false;
-            animator.SetBool(IS_OPEN, TemplateState);
             foreach (GameObject GO in Template)
             {
                 GO.SetActive(false);
