@@ -31,7 +31,7 @@ public class Afirmations : ButtonScript
 
         do
         {
-            newQuote = affirmationSO.AffirmationList[Random.Range(0, affirmationSO.AffirmationList.Count)];
+            newQuote = affirmationSO.AffirmationList[Random.Range(0, affirmationSO.AffirmationList.Count-1)];
         } while (newQuote == currentQuote);
 
         currentQuote = newQuote;
