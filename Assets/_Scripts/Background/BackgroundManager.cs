@@ -5,6 +5,8 @@ public class BackgroundManager : MonoBehaviour
 {
     [SerializeField] BackgroundListSO backgroundListSO;
     [SerializeField] Button backgroundToggleButton;
+    [SerializeField] Image[] darkBackground;
+    [SerializeField] Image[] lightBackground;
 
     BackgroundSO currentbackgroundSO;
     BackgroundSO newbackgroundSO;
@@ -45,5 +47,13 @@ public class BackgroundManager : MonoBehaviour
             backgroundTransform.localPosition = Vector3.zero;
         }
 
+        foreach (Image image in darkBackground)
+        {
+            image.color = currentbackgroundSO.darkBackgroundColour;
+        }
+        foreach (Image image in lightBackground)
+        {
+            image.color = currentbackgroundSO.lightBackgroundColour;
+        }
     }
 }

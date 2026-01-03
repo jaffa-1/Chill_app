@@ -1305,6 +1305,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundManager
   backgroundListSO: {fileID: 11400000, guid: f4f6d57834e23864a8bb8eaaaae90a80, type: 2}
   backgroundToggleButton: {fileID: 103631440}
+  darkBackground:
+  - {fileID: 993723511}
+  - {fileID: 2095403036}
+  - {fileID: 2033470855}
+  - {fileID: 1731701632}
+  - {fileID: 1042100803}
+  lightBackground:
+  - {fileID: 53908084}
+  - {fileID: 1795504853}
+  - {fileID: 1069802072}
+  - {fileID: 1854856396}
+  - {fileID: 1990790971}
+  - {fileID: 103631441}
+  - {fileID: 502812257}
+  - {fileID: 273907668}
+  - {fileID: 640502897}
+  - {fileID: 15951722}
 --- !u!4 &210984853
 Transform:
   m_ObjectHideFlags: 0
