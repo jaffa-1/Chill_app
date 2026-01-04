@@ -15,32 +15,11 @@ public class ButtonSingleUI : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        
-        float timer = 0;
-        float timerMax = 0.5f;
-
-        while(timer < timerMax)
-        {
-            timer += Time.deltaTime;
-            rectTransform.localScale = Vector3.Lerp(shrinkScale, expandScale, timer*timer);
-        }
-
         rectTransform.localScale = expandScale;
-
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-
-        float timer = 0;
-        float timerMax = 0.75f;
-
-        while (timer < timerMax)
-        {
-            timer += Time.deltaTime;
-            rectTransform.localScale = Vector3.Lerp(expandScale, shrinkScale, timer*timer);
-        }
-
         rectTransform.localScale = shrinkScale;
     }
 }

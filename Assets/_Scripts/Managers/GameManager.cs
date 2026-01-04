@@ -12,9 +12,18 @@ public class GameManager : MonoBehaviour
 
     const string CURRENTLEVEL = "currentLevel";
     const string CURRENTEXP = "currentExp";
+    const string CURRENTBUILD = "1.0";
+    const string BUILDKEY = "BuildVersion";
 
     private void Start()
     {
+        if (PlayerPrefs.GetString(BUILDKEY, "") != CURRENTBUILD)
+        {
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.SetString(BUILDKEY, CURRENTBUILD);
+            PlayerPrefs.Save();
+        }
+
         currentExp = PlayerPrefs.GetInt(CURRENTEXP,0);
         level = PlayerPrefs.GetInt(CURRENTLEVEL,1);
         TaskTemplate.OnTaskCompleted += TaskTemplate_OnTaskCompleted;

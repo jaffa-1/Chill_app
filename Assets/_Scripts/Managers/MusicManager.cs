@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections;
 
 public class MusicManager : ButtonScript
 {
@@ -20,8 +21,9 @@ public class MusicManager : ButtonScript
     MusicSO currentMusicSO;
     AudioSource AudioSource;
     bool isPlaying = true;
+    const int initialVolume = 0;
 
-    float volume = 0.5f;
+    float finalVolume = 0.5f;
 
     protected override void Awake()
     {
@@ -75,7 +77,9 @@ public class MusicManager : ButtonScript
         musicText.text = currentMusicSO.songName;
         artistText.text = currentMusicSO.songMaker;
         AudioSource.clip = currentMusicSO.audioClip;
-        AudioSource.volume = volume;
+
+        StartCoroutine(GradualVolumeIncrease());
+
         AudioSource.Play();
         isPlaying = true;
     }
@@ -91,5 +95,20 @@ public class MusicManager : ButtonScript
             isPlaying=true;
             AudioSource.UnPause();
         }
+    }
+
+    private IEnumerator GradualVolumeIncrease()
+    {
+        float timer = 0;
+        float timerMax = 2;
+
+        while (timer < timerMax)
+        {
+            timer += Time.deltaTime;
+            AudioSource.volume = Mathf.Lerp(initialVolume, finalVolume, timer * timer);
+            yield return null;
+        }
+
+        AudioSource.volume = finalVolume;
     }
 }

@@ -22,6 +22,7 @@ public class ButtonScript : MonoBehaviour
             {
                 GO.SetActive(TemplateState);
             }
+            if(TemplateState)
             OnTabToggled?.Invoke(this, EventArgs.Empty);
         });
         closeButton.onClick.AddListener(() =>

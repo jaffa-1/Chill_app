@@ -787,7 +787,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1805981091}
   m_Father: {fileID: 1946264035}
@@ -1054,6 +1054,7 @@ GameObject:
   m_Component:
   - component: {fileID: 128520413}
   - component: {fileID: 128520414}
+  - component: {fileID: 128520415}
   m_Layer: 5
   m_Name: Tasks
   m_TagString: Untagged
@@ -1107,6 +1108,18 @@ MonoBehaviour:
   CreateButton: {fileID: 715497536}
   taskContainer: {fileID: 1911697822}
   taskTemplate: {fileID: 659773681}
+--- !u!114 &128520415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128520412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49165a060a4b0b84790351f927d1e14c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TabAnimation
 --- !u!1 &146445281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1131,7 @@ GameObject:
   - component: {fileID: 146445282}
   - component: {fileID: 146445283}
   - component: {fileID: 146445284}
+  - component: {fileID: 146445285}
   m_Layer: 5
   m_Name: Music
   m_TagString: Untagged
@@ -1274,6 +1288,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &146445285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146445281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49165a060a4b0b84790351f927d1e14c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TabAnimation
 --- !u!1 &210984851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,7 +1394,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1190485084}
   m_Father: {fileID: 1946264035}
@@ -1772,6 +1798,7 @@ GameObject:
   m_Component:
   - component: {fileID: 373668099}
   - component: {fileID: 373668100}
+  - component: {fileID: 373668101}
   m_Layer: 5
   m_Name: Pomodoro
   m_TagString: Untagged
@@ -1828,6 +1855,18 @@ MonoBehaviour:
   DecreaseButton: {fileID: 43662771}
   pauseSprite: {fileID: 21300000, guid: 543030532147b984c866128132b9c129, type: 3}
   playSprite: {fileID: 21300000, guid: ab4a41005695d5e43bd1bee2723b2657, type: 3}
+--- !u!114 &373668101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373668098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49165a060a4b0b84790351f927d1e14c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TabAnimation
 --- !u!1 &386719356
 GameObject:
   m_ObjectHideFlags: 0
@@ -2133,7 +2172,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 931721143}
   m_Father: {fileID: 1946264035}
@@ -2963,7 +3002,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2060567624}
   m_Father: {fileID: 1946264035}
@@ -3475,6 +3514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 812631733}
   - component: {fileID: 812631734}
+  - component: {fileID: 812631735}
   m_Layer: 5
   m_Name: Affirmations
   m_TagString: Untagged
@@ -3527,6 +3567,18 @@ MonoBehaviour:
   NewQuoteButton: {fileID: 980724338}
   QuoteText: {fileID: 7867693}
   affirmationSO: {fileID: 11400000, guid: c14d5680b3bec964aa5d84c8ba323f9d, type: 2}
+--- !u!114 &812631735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812631732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49165a060a4b0b84790351f927d1e14c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TabAnimation
 --- !u!1 &838875674
 GameObject:
   m_ObjectHideFlags: 0
@@ -6569,7 +6621,7 @@ GameObject:
   - component: {fileID: 1805981093}
   - component: {fileID: 1805981092}
   m_Layer: 5
-  m_Name: Clock
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6629,7 +6681,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 57d689f1ee2659b4ea307feffdf0ba13, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8ac55d24a137b4c49b339cd298da2e4a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7411,7 +7463,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1549621059}
   m_Father: {fileID: 1946264035}
