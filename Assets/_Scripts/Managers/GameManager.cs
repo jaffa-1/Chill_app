@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     const string CURRENTLEVEL = "currentLevel";
     const string CURRENTEXP = "currentExp";
-    const string CURRENTBUILD = "1.0";
+    const string CURRENTBUILD = "1.1";
     const string BUILDKEY = "BuildVersion";
 
     private void Start()

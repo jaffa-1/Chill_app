@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,6 +9,8 @@ public class ButtonSingleUI : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     RectTransform rectTransform;
 
+    public static event EventHandler OnPointerEntry;
+
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -16,6 +19,7 @@ public class ButtonSingleUI : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void OnPointerEnter(PointerEventData eventData)
     {
         rectTransform.localScale = expandScale;
+        OnPointerEntry?.Invoke(this,EventArgs.Empty);
     }
 
     public void OnPointerExit(PointerEventData eventData)

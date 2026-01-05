@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,11 +14,13 @@ public class BackgroundManager : MonoBehaviour
 
     Transform currentBackground;
 
+    public static event EventHandler OnBackgroundChanged;
     private void Awake()
     {
         backgroundToggleButton.onClick.AddListener(() =>
         {
             changeBackground();
+            OnBackgroundChanged?.Invoke(this, EventArgs.Empty);
         });
     }
 
@@ -29,7 +32,7 @@ public class BackgroundManager : MonoBehaviour
     private void changeBackground()
     {
         do
-            newbackgroundSO = backgroundListSO.backgroundListSO[Random.Range(0, backgroundListSO.backgroundListSO.Count - 1)];
+            newbackgroundSO = backgroundListSO.backgroundListSO[UnityEngine.Random.Range(0, backgroundListSO.backgroundListSO.Count - 1)];
         while (newbackgroundSO == currentbackgroundSO);
         currentbackgroundSO = newbackgroundSO;
 
