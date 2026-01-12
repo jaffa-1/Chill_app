@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System;
 
 public class Tasks : ButtonScript
 {
@@ -12,6 +13,7 @@ public class Tasks : ButtonScript
 
     List<TaskTemplate> taskList;
     string taskString;
+    public static event EventHandler OntaskAdded;
 
     protected override void Awake()
     {
@@ -34,6 +36,7 @@ public class Tasks : ButtonScript
             TaskInput.text = "";
             taskString = null;
             }
+            OntaskAdded?.Invoke(this, EventArgs.Empty);
         });
     }
     private void Start()

@@ -11,6 +11,7 @@ public class TaskTemplate : MonoBehaviour
     [SerializeField] Button CompleteButton;
 
     public static event EventHandler OnTaskCompleted;
+    public static event EventHandler OnTaskRemoved;
 
     int priority = 0;
     private void Awake()
@@ -22,6 +23,7 @@ public class TaskTemplate : MonoBehaviour
         });
         deleteButton.onClick.AddListener(() =>
         {
+            OnTaskRemoved?.Invoke(this, EventArgs.Empty);
             Destroy(gameObject);
         });
         priorityButton.onClick.AddListener(() => {
