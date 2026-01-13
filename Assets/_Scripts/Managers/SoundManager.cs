@@ -7,6 +7,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip OnTaskCompleteAudio;
     [SerializeField] AudioClip OnTaskRemoveAudio;
     [SerializeField] AudioClip OnTaskAddedAudio;
+    [SerializeField] AudioClip OnPomodoroFinishedAudio;
+    [SerializeField] AudioClip OnLevelUpAudio;
 
     AudioSource audioSource;
     float sfx_volume = 0.35f;
@@ -17,7 +19,21 @@ public class SoundManager : MonoBehaviour
         Tasks.OntaskAdded += Tasks_OntaskAdded;
         TaskTemplate.OnTaskCompleted += TaskTemplate_OnTaskCompleted;
         TaskTemplate.OnTaskRemoved += TaskTemplate_OnTaskRemoved;
+        Pomodoro.OnPomodoroFinished += Pomodoro_OnPomodoroFinished;
+        GameManager.OnLevelUp += GameManager_OnLevelUp;
         audioSource = GetComponent<AudioSource>();
+    }
+
+    private void GameManager_OnLevelUp(object sender, System.EventArgs e)
+    {
+        float enterVolume = 1;
+        playClip(OnLevelUpAudio, enterVolume);
+    }
+
+    private void Pomodoro_OnPomodoroFinished(object sender, System.EventArgs e)
+    {
+        float enterVolume = 1;
+        playClip(OnPomodoroFinishedAudio, enterVolume);
     }
 
     private void TaskTemplate_OnTaskRemoved(object sender, System.EventArgs e)

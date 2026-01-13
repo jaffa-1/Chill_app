@@ -21,6 +21,8 @@ public class Pomodoro : ButtonScript
 
     bool isCounting = false;
 
+    public static event EventHandler OnPomodoroFinished;
+
     protected override void Awake()
     {
         base.Awake();
@@ -77,11 +79,23 @@ public class Pomodoro : ButtonScript
             seconds = 60;
             UpdateCountDownUI();
         }
+        if (minutes == 0 && seconds <= 0.5f)
+        {
+            OnPomodoroFinished?.Invoke(this, EventArgs.Empty);
+            Debug.Log("triggered");
+            isCounting = false;
+        }
     }
     private void UpdateCountDownUI()
     {
         CountDownText.text = String.Concat(minutes.ToString(), ":", seconds.ToString("F0"));
         if(seconds <1)
         CountDownText.text = String.Concat(minutes.ToString(), ":", "00");
+    }
+    [ContextMenu("setMinTime")]
+    void SetTimerMin()
+    {
+        minutes = 0;
+        seconds = 5;
     }
 }

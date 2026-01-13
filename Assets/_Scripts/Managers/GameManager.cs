@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,8 +13,10 @@ public class GameManager : MonoBehaviour
 
     const string CURRENTLEVEL = "currentLevel";
     const string CURRENTEXP = "currentExp";
-    const string CURRENTBUILD = "2";
+    const string CURRENTBUILD = "3";
     const string BUILDKEY = "BuildVersion";
+
+    public static event EventHandler OnLevelUp;
 
     private void Start()
     {
@@ -27,6 +30,7 @@ public class GameManager : MonoBehaviour
         currentExp = PlayerPrefs.GetInt(CURRENTEXP,0);
         level = PlayerPrefs.GetInt(CURRENTLEVEL,1);
         TaskTemplate.OnTaskCompleted += TaskTemplate_OnTaskCompleted;
+        Pomodoro.OnPomodoroFinished += Pomodoro_OnPomodoroFinished;
 
         foreach (LevelSO levelSO in LevelSoList)
         {
@@ -39,10 +43,14 @@ public class GameManager : MonoBehaviour
         StatsUI.updateExpUI(currentExp, MaxExp, level);
     }
 
+    private void Pomodoro_OnPomodoroFinished(object sender, System.EventArgs e)
+    {
+        IncreaseExp();
+    }
+
     private void TaskTemplate_OnTaskCompleted(object sender, System.EventArgs e)
     {
         IncreaseExp();
-        StatsUI.updateExpUI(currentExp, MaxExp, level);
     }
 
     public void IncreaseExp()
@@ -55,6 +63,7 @@ public class GameManager : MonoBehaviour
         {
             LevelUp();
         }
+        StatsUI.updateExpUI(currentExp, MaxExp, level);
         PlayerPrefs.SetInt(CURRENTLEVEL, level);
         PlayerPrefs.SetInt(CURRENTEXP,currentExp);
         PlayerPrefs.Save();
@@ -62,6 +71,7 @@ public class GameManager : MonoBehaviour
     public void LevelUp()
     {
         level++;
+        OnLevelUp?.Invoke(this, EventArgs.Empty);
         currentExp = 0;
         foreach (LevelSO levelSO in LevelSoList)
         {
